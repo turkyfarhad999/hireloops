@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,23 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <Navbar></Navbar>
-        {children}</body>
+        {children}
+        <Toaster 
+          position="top-right" 
+          theme="dark"
+          toastOptions={{
+            style: {
+              background: 'rgba(23, 23, 23, 0.85)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(38, 38, 38, 0.8)',
+              color: '#ffffff',
+              borderRadius: '16px',
+              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5)',
+              fontSize: '13px',
+            },
+          }}
+        />
+        </body>
     </html>
   );
 }
